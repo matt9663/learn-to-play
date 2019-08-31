@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Learn2Play App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <main>
+        <section class="searchArea">
+            <h1>What song would you like to learn to play?</h1>
+            <form>
+                <label for="song title">Artist:</label>
+                <input type="search" placeholder="Artist name" required>
+                <label for="song title">Song Title:</label>
+                <input type="search" placeholder="Pick a song!" required>
+                <input type="submit" value="Let's Play!">
+            </form>
+        </section>
+        <section class="resultsArea hidden">
+            <div class="videoHolder">
+                <h3>Watch</h3>
+                <iframe src="" frameborder="0"></iframe>        
+            </div>
+            <div class="lyricsHolder hidden">
+                <h3>Lyrics</h3>
+                <p class=lyrics></p>
+            </div>
+            <div class="tabHolder hidden">
+                <h3>Play</h3>
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+        </section>
+    </main>
+</body>

@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+
+.searchArea {
+    margin: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+input {
+    margin: 15px 0px;
+}
+label {
+    border: 2px solid black;
+    width: 130px;
+    height: 38px;
+    text-align: left;
+    padding: 0px 5px;
+
+}
+input[type="search"] {
+    height: 50px;
+    width: 65%;
+    font-size: 24px;
+}
+input[type="submit"] {
+    width: 25%;
+    height: 40px;
+}
