@@ -11,7 +11,7 @@
 <body>
     <main>
         <section class="searchArea">
-            <h1>What song would you like to learn to play?</h1>
+            <h1>What song would you like to learn?</h1>
             <form>
                 <label for="song title">Artist:</label>
                 <input class="artistQuery" type="search" placeholder="Artist name" required>
@@ -22,19 +22,20 @@
         </section>
         <section class="resultsArea hidden">
             <div class="lyricsHolder">
-                <h3>Lyrics</h3>
+                <h3>Sing</h3>
                 <p class="lyrics"></p>
                 <p class="lyricError"></p>
             </div>
             <section class="rightColumn">
             <div class="videoHolder">
                     <h3>Watch</h3>
-                    <iframe src="" frameborder="0"></iframe>        
+                    <iframe src="https://www.youtube.com/embed/OkyrIRyrRdY/" frameborder="0" class="videoPlayer"></iframe>
+                    <p class="vidError"></p>        
                 </div>
         
             <div class="tabHolder">
                 <h3>Play</h3>
-                <a href="https://www.songsterr.com/a/wsa/led-zeppelin-stairway-to-heaven-guitar-solo-tab-s393733t0" target="_blank" class="tabLink"><button type=button>View Songsterr Tab</button></a>
+                <a href="https://www.songsterr.com/a/wsa/led-zeppelin-stairway-to-heaven-guitar-solo-tab-s393733t0" target="_blank" class="tabLink"><button type="button" class="tabButton">View Songsterr Tab</button></a>
             </div>
         </section>
         </section>

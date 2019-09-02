@@ -8,8 +8,8 @@ function appStarter() {
         let songTitle = $(".songQuery").val();
         
         getLyrics(artistName, songTitle);
-        //getVideo(artistName, songTitle);
-       getTab(artistName, songTitle);
+        findVideo(artistName, songTitle);
+        getTab(artistName, songTitle);
     });
 }
 
@@ -32,16 +32,48 @@ $('.lyrics').empty();
 }
 
 function renderLyrics(jsonObject) {
-    
     let lyricString = jsonObject.result.track.text;
     let formattedLyricsString = lyricString.replace(/\n/g,"<br />");
     $(".lyrics").html(formattedLyricsString);
 }
 
-function getVideo(artist, song) {
-
+function findVideo(artist, song) {
+    const vidParams = {
+        key: youtubeKey,
+        q: `${artist} ${song}`,
+        part: 'snippet',
+        type: 'video'
+    };
+    const queryString = formatYoutubeQuery(vidParams);
+    fetchVids(queryString);
+}
+function formatYoutubeQuery(params) {
+    const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    return queryItems.join('&');
 }
 
+function fetchVids(query) {
+    let youtubeURL = `https://www.googleapis.com/youtube/v3/search?` + query + `&videoEmbeddable=true`
+    fetch(youtubeURL)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then (responseJson => embedVids(responseJson))
+    .catch(err => {
+        $(".vidError").text(`Video search was unsuccessful: ${err.message}`);
+    });
+}
+
+function embedVids(object) {
+    console.log(object);
+    $(".videoHolder iframe").remove();
+    let vidID = object.items[0].id.videoId;
+    console.log(vidID);
+    $('<iframe width="420" height="315" frameborder="0" allowfullscreen></iframe>').attr("src", `https://www.youtube.com/embed/` + vidID).appendTo(".videoHolder");
+}
 function getTab (artist, song) {
     $(".tabLink").attr("href", `http://www.songsterr.com/a/wa/bestMatchForQueryString?s=${song}&a=${artist}`);
 }
