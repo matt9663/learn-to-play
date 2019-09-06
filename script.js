@@ -23,7 +23,6 @@ $('.lyrics').empty();
 artist = artistQuery.replace(/\//g, "-");
 song = songQuery.replace(/\//g, "-");
  let lyricURL =  "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + song + "?apikey=" + lyricsKey;
- console.log(lyricURL);
  fetch(lyricURL)
  .then(response => {
      if (response.ok) {
@@ -33,7 +32,7 @@ song = songQuery.replace(/\//g, "-");
  })
  .then(responseJson => renderLyrics(responseJson))
  .catch(err => {
-     $(".lyricError").text(`Search was unsuccessful: ${err.message}Lyrics are either unavailable or the search terms are misspelled.`);
+     $(".lyricError").text(`Search was unsuccessful: ${err.message} Lyrics are either unavailable or the search terms are misspelled.`);
  });
 }
 
@@ -74,10 +73,8 @@ function fetchVids(query) {
 }
 
 function embedVids(object) {
-    console.log(object);
     $(".responsiveVid iframe").remove();
     let vidID = object.items[0].id.videoId;
-    console.log(vidID);
     $('<iframe frameborder="0" allowfullscreen></iframe>').attr("src", `https://www.youtube.com/embed/` + vidID).appendTo(".responsiveVid");
 }
 function getTab (artistSearch, songSearch) {
