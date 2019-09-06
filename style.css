@@ -1,12 +1,37 @@
 * {
     box-sizing: border-box;
-    font-family: sans-serif;
+    margin: 0;
 }
 
+body {
+    min-height: 100%;
+    background-image: url(https://user-images.githubusercontent.com/51541006/64278430-3ecb2980-cf3c-11e9-8bcd-c7488ffcc068.jpg);
+    background-size: cover;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    Font-Family: 'Nunito', Sans-Serif;
+    color: #100a07;
 
+}
 
+h1, h3 {
+    Font-Family: 'Libre Baskerville', Serif;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+h3 {
+    padding: 3%;
+    font-size: 36px;
+    font-weight: bold;
+    
+}
 .searchArea {
-    margin: 20px;
+    padding: 20px;
+    margin-left: 40%;
+    margin-top: 15%;
+    margin-right: 2%;
+    background-color: rgb(248, 248, 248, .3);
+    border: 3px ridge #f4f4f4;
 }
 form {
     display: flex;
@@ -17,7 +42,7 @@ input {
     margin: 15px 0px;
 }
 label {
-    border: 2px solid black;
+    
     width: 130px;
     height: 38px;
     text-align: left;
@@ -26,35 +51,235 @@ label {
 }
 input[type="search"] {
     height: 50px;
-    width: 65%;
+    width: 80%;
     font-size: 24px;
+    border: 0px;
+    padding-left: 3%;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #0D0806;
 }
-input[type="submit"] {
-    width: 25%;
-    height: 40px;
-}
-.resultsArea {
+ button[type=submit] {
+    width: 35%;
+    height: 50px;
+    background-color: #344C5E;
+    color: #DECE90;
+    font-size: 24px;
+    font-weight: bold;  
+    border: 1px solid #344C5E;
+    border-radius: 4px;
+    position: relative;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    transition-duration: .1s;
+    box-shadow: 0 8px #999;
+ }
+
+ button[type=submit]:hover {
+    background-color: #2b3f4e;
+    cursor: pointer;
+ }
+
+ button[type=submit]:active {
+    background-color: #2b3f4e;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+    cursor: pointer;
+ }
+
+input[type="button"] {
+    background-color: inherit;
+    color: inherit;
+    font-size: 24px;
+    border: 0px;
+    transition-duration: 10ms;
+    cursor: inherit;
+}
+.resultsArea {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto;
     text-align: center;
     margin: 3%;
-}
-.rightColumn {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    border: 1px black solid;
-}
+    grid-column-gap: 1em;
+    }
+
 .lyricsHolder {
-    width: 50%;
-    border: 1px black solid;
+    width: 100%;
+    grid-area: 1 / 2 / 5 / 3;
+    background-color: rgb(248, 248, 248, .3);
+    border: 3px ridge #f4f4f4;
 }
 .tabHolder {
+    height: 100%;
     width: 100%;
-    border: 1px black solid;
     padding-bottom: 10px;
+    grid-area: 2 / 1 / 3 / 2;
+    align-self: center;
+    background-color: rgb(248, 248, 248, .2);
+    border-left: 3px ridge #f4f4f4;
+    border-right: 3px ridge #f4f4f4;
+}
+
+.videoHolder {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 10px;
+    grid-area: 3 / 1 / 4 / 2;
+    background-color: rgb(248, 248, 248, .2);
+    border-left: 3px ridge #f4f4f4;
+    border-right: 3px ridge #f4f4f4;
+    border-bottom: 3px ridge #f4f4f4;
+}
+.responsiveVid {
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    width:100%;
+}
+.responsiveVid iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width:100%;
+    position: absolute;
 }
 .tabButton {
     padding: 20px;
-    border-radius: 5px;
+    background-color: #344C5E;
+    color: #DECE90;
+    font-size: 24px;
+    border: 1px solid #344C5E;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition-duration: .15s;
+    box-shadow: 0 6px #999;
+}
+.tabButton:hover {
+    background-color: #2b3f4e;
+    cursor: pointer;
+}
+.tabButton:active {
+    background-color: #2b3f4e;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+    cursor: pointer;
+}
+
+.iconHolder {
+    color: #DECE90;
+    font-size: 52px;
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: rgb(248, 248, 248, .2);
+    height: 100%;
+    border-top: 3px ridge #f4f4f4;
+    border-left: 3px ridge #f4f4f4;
+    border-right: 3px ridge #f4f4f4;
+    text-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    padding-bottom: 30px;
+}
+
+.fa-chevron-left {
+    padding-top: 40px; 
+    color: #DECE90;
+    font-size: 52px;
+    align-self: center; 
+}
+
+.fa-chevron-left:hover {
+    color: #344C5E;
+    cursor: pointer;
+    text-shadow: 5px 5px 0px rgba(0,0,0,0.2)
+}
+.backText {
+    font-family: 'Nunito', Sans-Serif;
+}
+.videoHolder > h3, .tabHolder > h3 {
+    color: #0D0806;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+.lyricsHolder > h3 {
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+
+/* media query section */ 
+
+@media only screen and (max-width:1175px) {
+    button[type=submit] {
+        width: 40%;
+    }
+    .resultsArea {
+    grid-template-columns: 2fr 2fr;
+    }
+}
+@media only screen and (max-width:880px) {
+    .searchArea {
+        margin-left: 50%;
+    }
+    button[type=submit] {
+        width: 55%;
+    }
+    .fa-search {
+        padding-right: 10px;
+    }
+}
+@media only screen and (max-width:760px) {
+    .searchArea {
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 40%;
+    }
+    form {
+        align-items: center;
+    }
+    button[type=submit] {
+        width: 80%;
+        justify-content: center;
+    }
+    .fa-search {
+        padding-right: 10px;
+    }
+}
+@media only screen and (max-width:720px) {
+    .body{
+        background-position: left; 
+    }
+    .resultsArea {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-column-gap: 0em;
+        background-color: rgb(248, 248, 248, .25);
+        
+    }
+    .iconHolder {
+        grid-row-start: 1;
+        grid-row-end: 2; 
+        background-color: rgb(248, 248, 248, .25);
+    }
+    .tabHolder {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: rgb(248, 248, 248, .25);
+    }
+    .videoHolder {
+        grid-row-start: 3;
+        grid-row-end: 4;
+        border-bottom: 0px;
+        background-color: rgb(248, 248, 248, .25);
+    }
+    .lyricsHolder {
+        grid-row-start: 4;
+        border-top: 0px;
+        grid-column-start: 1;
+    }
+
+}
+@media only screen and (max-width:325px) {
+    button[type=submit] {
+        font-size: 20px;
+    }
 }

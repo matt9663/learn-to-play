@@ -2,20 +2,26 @@ const youtubeKey = "AIzaSyCi93LzmteONP1uWViY4_PB_l91EeRORBs";
 const lyricsKey = "pBgD5SvsRP6KE6vxuUKkUU7CxIDfn1OsvZmONF90YWV6R72HYj0j0OOscetK0unG"
 
 function appStarter() {
+    $(".searchArea").show(300);
+    $(".resultsArea").hide(100);
     $('form').submit(event => {
         event.preventDefault();
         let artistName = $(".artistQuery").val();
         let songTitle = $(".songQuery").val();
-        
         getLyrics(artistName, songTitle);
         findVideo(artistName, songTitle);
         getTab(artistName, songTitle);
+        $(".searchArea").hide(300);
+        $(".resultsArea").show(400);
+        backLoader();
     });
 }
 
-function getLyrics (artist, song) {
+function getLyrics (artistQuery, songQuery) {
 $('.lyricError').text("");
 $('.lyrics').empty();
+artist = artistQuery.replace(/\//g, "-");
+song = songQuery.replace(/\//g, "-");
  let lyricURL =  "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + song + "?apikey=" + lyricsKey;
  console.log(lyricURL);
  fetch(lyricURL)
@@ -53,7 +59,7 @@ function formatYoutubeQuery(params) {
 }
 
 function fetchVids(query) {
-    let youtubeURL = `https://www.googleapis.com/youtube/v3/search?` + query + `&videoEmbeddable=true`
+    let youtubeURL = `https://www.googleapis.com/youtube/v3/search?` + query + `&videoEmbeddable=true&rel=0`
     fetch(youtubeURL)
     .then(response => {
         if (response.ok) {
@@ -69,12 +75,19 @@ function fetchVids(query) {
 
 function embedVids(object) {
     console.log(object);
-    $(".videoHolder iframe").remove();
+    $(".responsiveVid iframe").remove();
     let vidID = object.items[0].id.videoId;
     console.log(vidID);
-    $('<iframe width="420" height="315" frameborder="0" allowfullscreen></iframe>').attr("src", `https://www.youtube.com/embed/` + vidID).appendTo(".videoHolder");
+    $('<iframe frameborder="0" allowfullscreen></iframe>').attr("src", `https://www.youtube.com/embed/` + vidID).appendTo(".responsiveVid");
 }
-function getTab (artist, song) {
+function getTab (artistSearch, songSearch) {
+    artist = artistSearch.replace(/&/g, "and");
+    song = songSearch.replace(/&/g, "and");
     $(".tabLink").attr("href", `http://www.songsterr.com/a/wa/bestMatchForQueryString?s=${song}&a=${artist}`);
+}
+function backLoader() {
+    $("#backButton").click(function() {
+        appStarter();
+    });
 }
 $(appStarter);

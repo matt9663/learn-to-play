@@ -3,8 +3,11 @@
 <head>
     <title>Learn2Play App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Nunito" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/540d7da857.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </head>
@@ -13,31 +16,31 @@
         <section class="searchArea">
             <h1>What song would you like to learn?</h1>
             <form>
-                <label for="song title">Artist:</label>
                 <input class="artistQuery" type="search" placeholder="Artist name" required>
-                <label for="song title">Song Title:</label>
                 <input class="songQuery" type="search" placeholder="Pick a song!" required>
-                <input type="submit" value="Let's Play!">
+                <button type="submit" class="searchButton"><span><i class="fas fa-search"></i></span><span>Let's Play</span></button>   
             </form>
         </section>
-        <section class="resultsArea hidden">
-            <div class="lyricsHolder">
-                <h3>Sing</h3>
-                <p class="lyrics"></p>
-                <p class="lyricError"></p>
-            </div>
-            <section class="rightColumn">
-            <div class="videoHolder">
-                    <h3>Watch</h3>
-                    <iframe src="" frameborder="0" class="videoPlayer"></iframe>
-                    <p class="vidError"></p>        
+        <section class="resultsArea">
+                <div class="iconHolder">
+                    <i id="backButton" class="fas fa-chevron-left"><span class=backText> BACK</span></i>
                 </div>
-        
-            <div class="tabHolder">
-                <h3>Play</h3>
-                <a href="https://www.songsterr.com/a/wsa/led-zeppelin-stairway-to-heaven-guitar-solo-tab-s393733t0" target="_blank" class="tabLink"><button type="button" class="tabButton">View Songsterr Tab</button></a>
-            </div>
-        </section>
+                <div class="videoHolder">
+                        <h3>Watch</h3>
+                        <div class="responsiveVid">
+                        <iframe src="" frameborder="0" class="videoPlayer"></iframe>
+                        </div>
+                        <p class="vidError"></p>        
+                    </div>
+                    <div class="tabHolder">
+                        <h3>Play</h3>
+                        <a href="https://www.songsterr.com/a/wsa/led-zeppelin-stairway-to-heaven-guitar-solo-tab-s393733t0" target="_blank" class="tabLink"><button type="button" class="tabButton">View Songsterr Tab</button></a>
+                    </div>
+                <div class="lyricsHolder">
+                    <h3>Sing</h3>
+                    <p class="lyrics">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium alias facilis ipsam obcaecati? Deserunt placeat dicta nemo dignissimos repudiandae? Possimus odio cumque similique nobis consectetur voluptas quod quibusdam. Laudantium iure nam quas quibusdam natus accusamus maiores neque praesentium nostrum excepturi atque corporis eum, dolores consequatur minima aperiam reiciendis odio itaque rerum quasi. Nobis dicta dignissimos atque ut laudantium blanditiis modi animi hic ducimus harum amet nesciunt, excepturi id dolores et laboriosam odio! Quaerat qui harum ad nemo quod placeat sapiente debitis ipsum doloremque laborum eligendi rem perspiciatis eaque, vitae cum deleniti vero reprehenderit! Hic commodi adipisci officiis vitae soluta nemo cupiditate necessitatibus nam rerum accusantium! In, consectetur quidem, numquam nisi repellendus fugiat quas, dolor sit enim neque quae autem nemo ut officiis deleniti velit cum aliquam ipsam rem. Voluptatem maxime nesciunt officiis dolores excepturi, quo ex veniam atque qui consectetur praesentium iure sed accusamus corrupti. Dolore labore necessitatibus ea quo iusto delectus, ab eaque voluptate quisquam omnis, quae voluptatem. Asperiores iure nam velit sint, atque eius tenetur architecto praesentium veniam perferendis explicabo impedit. Ipsum assumenda similique provident numquam nemo, optio quisquam cumque exercitationem eum eveniet voluptas fuga aspernatur velit architecto officiis quod, adipisci neque. Nisi laborum quos quis praesentium porro corrupti expedita ipsum, fuga ad dolore quia aliquam. Explicabo, enim architecto eaque minus cupiditate perferendis voluptatum officia temporibus harum ipsum veritatis repellat voluptates quos doloremque cum, totam ipsam dicta natus, ea quisquam. Aut rerum illum amet blanditiis eveniet iusto quis, voluptatem repudiandae exercitationem id ea labore eius, ex nesciunt quod, saepe dolores laborum debitis quae? Doloremque et delectus officiis perferendis omnis ipsum facere velit unde eaque. Dolor nostrum eum accusantium maiores hic repellat aperiam nesciunt, soluta temporibus maxime perferendis. Dolorum impedit voluptatibus modi sequi voluptates, enim repellat natus tenetur doloribus fugiat repellendus iste! Error commodi voluptate ipsum aut? Dolores vel accusamus sunt libero dignissimos deleniti enim commodi saepe, repudiandae magnam suscipit, illo nihil earum. Perspiciatis impedit odit itaque ipsa doloremque. Sequi eaque expedita impedit animi aliquam facere repellendus placeat alias, ipsam, quae quibusdam inventore modi cum dolorum, molestiae et! Ex eaque ratione nulla, esse modi voluptatem nobis facere dolores numquam laboriosam dignissimos enim velit? Eveniet, ratione doloremque possimus laborum nobis facere provident! Repudiandae ex, ducimus sunt eaque aspernatur vero molestiae provident blanditiis modi cumque obcaecati illo incidunt, rem cupiditate dolorem laboriosam soluta voluptate harum inventore doloribus. Similique repudiandae dignissimos sed tempora voluptates neque totam at fugiat perspiciatis reprehenderit. Sunt, harum?</p>
+                    <p class="lyricError"></p>
+                </div>
         </section>
     </main>
 </body>
