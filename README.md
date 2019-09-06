@@ -7,7 +7,9 @@ Live version can be found on [Github Pages](https://matt9663.github.io/learn-to-
 
 ## Tech Used:
 -HTML
+
 -CSS
+
 -Javascript/JQuery
 
 ## App Screenshots
